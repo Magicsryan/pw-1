@@ -1,9 +1,9 @@
 <?php
-include "Koneksi.php";
+include "koneksi.php";
 
 // Mengambil data dari form
 $nm = $_POST["nama"];
-$jenis = $_POST["jenis_kelamin"];
+$jenis = $_POST["jenis"];
 $mp = $_POST["mapel"];
 $id = $_POST["id"];
 
@@ -11,8 +11,8 @@ $id = $_POST["id"];
 date_default_timezone_set('Asia/Jakarta');
 $tanggal = date('Y-m-d');
 
-// Query untuk mengupdate data mahasiswa
-$sql = "UPDATE mahasiswa SET nama_mahasiswa = '$nm', jenis_kelamin = '$jenis', mapel = '$mp', tanggal = '$tanggal' WHERE id_guru = '$id'";
+// Query untuk mengupdate data guru (not mahasiswa)
+$sql = "UPDATE guru SET nama_guru = '$nm', jenis_kelamin = '$jenis', mapel = '$mp', tgl_masuk = '$tanggal' WHERE id_guru = '$id'";
 $query = mysqli_query($koneksi, $sql);
 
 // Memeriksa apakah query berhasil dijalankan
